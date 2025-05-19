@@ -9,22 +9,31 @@
 \usepackage{siunitx}
 \usepackage{geometry}
 \usepackage{caption}
-\usepackage{pgfplots}
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{microtype}
 \usepackage{hyperref}
+\hypersetup{
+  pdfinfo={
+    Title={Principle of Counterbalanced Infinity},
+    Author={Jordan Sommerfeld},
+    DOI={10.5281/zenodo.15453514}
+  }
+}
 \usepackage{xspace}
 \usepackage{cleveref}
 
-% --- formatting ---
-\usetikzlibrary{pgfplots.fillbetween}
+% --- Graphics & fill-between ---
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+
+% --- Formatting ---
 \pgfplotsset{compat=1.18}
 \geometry{margin=1in}
 \sisetup{group-separator = {\,}, group-minimum-digits = 4}
 \hyphenation{late-time}
-\DeclareSIUnit{\USD}{USD\$}
+\DeclareSIUnit{\USD}{USD}
 
 % ---  Column helpers ---
 \newcolumntype{L}{>{\raggedright\arraybackslash}p{2.8cm}}
@@ -32,19 +41,20 @@
 % ---  Macros ---
 \newcommand{\KB}{k_\mathrm{B}}
 \newcommand{\PCI}{PCI\xspace}
+\newcommand{\DOI}{\href{https://doi.org/10.5281/zenodo.15453514}{doi:10.5281/zenodo.15453514}}
 \hyphenation{Observational}
 
 % ---  Metadata ---
-\title{Counterbalanced Infinity---an epistemic principle for resolving infinite paradoxes in cosmology and decision theory}
+\title{Counterbalanced Infinity---an epistemic principle for resolving infinite paradoxes in cosmology and decision theory\thanks{\DOI}}
 \author{Jordan Sommerfeld}
 \date{4 May 2025}
 
 \begin{document}\raggedbottom
 \maketitle
 
-% ====================================
+% ==================================
 % Abstract
-% ====================================
+% ==================================
 \begin{abstract}\noindent
 Leveraging an algorithmic‐Ockham prior
 ($\alpha\equiv\ln 2$—chosen so one extra bit halves prior weight and \textbf{thereby imposes an additional information-theoretic bound that prunes scenarios still allowed by scale-factor measures})\,– the \emph{Principle of Counterbalanced Infinity} (\PCI) rescues empirical
@@ -61,7 +71,7 @@ re-evaluate decision-theory payoffs, and state concrete falsifiable consequences
 
 % ====================================
 \section*{Notation (quick reference)}
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{@{}p{3.3cm}p{10cm}@{}}
 $\KB$ & Boltzmann’s constant.\\
 $H_0$ & Present-day Hubble parameter ($H_0\!\approx\!\num{3.3e-43}\,\si{GeV}$).\\
