@@ -1,9 +1,11 @@
-% ====================================
-% Counterbalanced Infinity (\PCI) % ====================================
+% ============================================================
+%  Principle of Counterbalanced Infinity
+% ============================================================
+
 \documentclass[12pt]{article}
 
-% ------------------ Packages ------------------------------------------
-% --- core maths & tables ---
+% ---------------------- Packages ----------------------------
+% --- Core maths & tables ---
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,booktabs,makecell,array}
 \usepackage{siunitx}
@@ -13,42 +15,52 @@
 \usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{microtype}
-\usepackage{hyperref}
+
+% --- Hyperlinks & metadata (load first) ---
+\usepackage{hyperref}          % must precede orcidlink
 \hypersetup{
   pdfinfo={
     Title={Principle of Counterbalanced Infinity},
-    Author={Jordan Sommerfeld},
+    Author={Jordan Sommerfeld | ORCID: 0009-0005-4658-4085},
     DOI={10.5281/zenodo.15453514}
-  }
+  },
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
 }
-\usepackage{xspace}
-\usepackage{cleveref}
+
+% --- ORCID badge ---
+\usepackage{orcidlink}
 
 % --- Graphics & fill-between ---
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
 
 % --- Formatting ---
-\pgfplotsset{compat=1.18}
 \geometry{margin=1in}
 \sisetup{group-separator = {\,}, group-minimum-digits = 4}
 \hyphenation{late-time}
 \DeclareSIUnit{\USD}{USD}
 
-% ---  Column helpers ---
+% --- Column helpers ---
 \newcolumntype{L}{>{\raggedright\arraybackslash}p{2.8cm}}
 
-% ---  Macros ---
+% -------------------- Macros -------------------------------
 \newcommand{\KB}{k_\mathrm{B}}
 \newcommand{\PCI}{PCI\xspace}
 \newcommand{\DOI}{\href{https://doi.org/10.5281/zenodo.15453514}{doi:10.5281/zenodo.15453514}}
 \hyphenation{Observational}
+\usepackage{xspace}
+\usepackage{cleveref}
 
-% ---  Metadata ---
-\title{Counterbalanced Infinity---an epistemic principle for resolving infinite paradoxes in cosmology and decision theory\thanks{\DOI}}
-\author{Jordan Sommerfeld}
+% -------------------- Metadata -----------------------------
+\title{Counterbalanced Infinity—An Epistemic Principle for Resolving Infinite Paradoxes in Cosmology and Decision Theory\thanks{\DOI}}
+\author{Jordan Sommerfeld\,\orcidlink{0009-0005-4658-4085}}
 \date{4 May 2025}
 
+% ============================================================
 \begin{document}\raggedbottom
 \maketitle
 
