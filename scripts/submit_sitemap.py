@@ -14,7 +14,7 @@ creds = service_account.Credentials.from_service_account_file(
 )
 service = googleapiclient.discovery.build("searchconsole", "v1", credentials=creds)
 
-SITE = "https://www.pciprinciple.org"
+SITE    = "sc-domain:pciprinciple.org"
 SITEMAP = "https://www.pciprinciple.org/sitemap.xml"
 
 service.sitemaps().submit(siteUrl=SITE, feedpath=SITEMAP).execute()
