@@ -1,0 +1,53 @@
+name: SEO housekeeping          # <- top-level name of the workflow
+
+on:
+  push:
+    branches: [main]            # run every time you push to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest      # GitHub spins up a fresh Linux VM
+
+    steps:
+      # ----- 1. Check out your repo into the VM -----
+      - uses: actions/checkout@v4
+
+      # ----- 2. Install Python dependencies ---------
+      - name: Install deps
+        run: pip install google-api-python-client google-auth requests
+
+      # ----- 3. Generate sitemap.xml & robots.txt ----
+      - name: Generate sitemap & robots
+        run: |
+          python scripts/make_sitemap.py
+          echo "Sitemap: https://pciprinciple.org/sitemap.xml" > robots.txt
+
+      # ----- 4. Ensure meta tags are present ----------
+      - name: Insert meta tags
+        run: python scripts/insert_meta.py
+
+      # ----- 5. Commit any changed files back ----------
+      - name: Commit changes
+        run: |
+          git config user.name "PCI-bot"
+          git config user.email "bot@pciprinciple.org"
+          git add .
+          git commit -m "Auto-update sitemap & meta" || echo "No changes"
+
+      # ----- 6. Push the commit -----------------------
+      - name: Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ----- 7. Submit sitemap to Google --------------
+      - name: Submit sitemap to Google
+        env:
+          GSC_TOKEN: ${{ secrets.GSC_TOKEN }}
+        run: python scripts/submit_sitemap.py
+
+      # ----- 8. Tune Cloudflare settings --------------
+      - name: Tune Cloudflare
+        env:
+          CF_API: ${{ secrets.CF_API }}
+        run: python scripts/cf_minify_on.py
