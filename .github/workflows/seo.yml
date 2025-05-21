@@ -36,6 +36,8 @@ jobs:
           git config user.email "bot@pciprinciple.org"
           git add .
           git commit -m "Auto-update sitemap & meta" || echo "No changes"
+          # ---- pull --rebase to incorporate any new upstream commits ----
+          git pull --rebase origin ${{ github.ref_name }} || true
 
       # ----- 6. Push the commit -----------------------
       - name: Push
