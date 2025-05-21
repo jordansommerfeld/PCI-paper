@@ -1,8 +1,11 @@
-name: SEO housekeeping          # <- top-level name of the workflow
+name: SEO housekeeping
 
 on:
   push:
-    branches: [main]            # run every time you push to main
+    branches: [main]
+
+permissions:
+  contents: write    # <-- gives the Action permission to push commits
 
 jobs:
   build:
