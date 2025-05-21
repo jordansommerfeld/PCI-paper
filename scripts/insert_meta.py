@@ -13,10 +13,10 @@ if not file.exists():
 html = file.read_text()
 meta_block = """
 <meta name="description" content="Finite-measure fix to the Boltzmann-brain paradox.">
-<link rel="canonical" href="https://pciprinciple.org/">
+<link rel="canonical" href="https://www.pciprinciple.org/">
 <meta property="og:title" content="Principle of Counterbalanced Infinity">
 <meta property="og:description" content="Information-theoretic cosmology paper by Jordan Sommerfeld">
-<meta property="og:image" content="https://pciprinciple.org/fig1.png">
+<meta property="og:image" content="https://www.pciprinciple.org/fig1.png">
 """
 
 if "og:title" not in html:

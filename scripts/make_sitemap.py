@@ -6,7 +6,7 @@ Generate a simple sitemap.xml that lists index.html and the PDF.
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-BASE = "https://pciprinciple.org"
+BASE = "https://www.pciprinciple.org"
 
 pages = [
     f"{BASE}/index.html",

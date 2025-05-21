@@ -20,7 +20,7 @@ jobs:
       - name: Generate sitemap & robots
         run: |
           python scripts/make_sitemap.py
-          echo "Sitemap: https://pciprinciple.org/sitemap.xml" > robots.txt
+          echo "Sitemap: https://www.pciprinciple.org/sitemap.xml" > robots.txt
 
       # ----- 4. Ensure meta tags are present ----------
       - name: Insert meta tags
